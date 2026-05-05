@@ -3,57 +3,24 @@
 import React from 'react';
 import { cn } from '@/lib/cn';
 import Image from 'next/image';
-import { Button } from './Button';
 
 export interface HeroSectionProps {
-  /**
-   * 메인 제목 (2줄)
-   * @default ["휴대폰 소액결제,신용카드 결제", "클릭 한번으로 손쉽운 상품권 구매"]
-   */
   title?: string[];
-
-  /**
-   * 부제목
-   * @default "구매 즉시 발급, 24시간 언제든 사용 가능,상품권 현금화까지 한번에"
-   */
   subtitle?: string;
-
-  /**
-   * 버튼 텍스트
-   * @default "바로 구매하기"
-   */
   buttonText?: string;
-
-  /**
-   * 버튼 클릭 핸들러
-   */
   onButtonClick?: () => void;
-
-  /**
-   * 히어로 이미지 경로
-   * @default "/hero-image.png"
-   */
   imageSrc?: string;
-
-  /**
-   * 이미지 alt 텍스트
-   * @default "결제 일러스트레이션"
-   */
   imageAlt?: string;
-
-  /**
-   * 추가 CSS 클래스
-   */
   className?: string;
 }
 
 export const HeroSection: React.FC<HeroSectionProps> = ({
-  title = ['휴대폰 소액결제,신용카드 결제,', '클릭 한번으로 손쉽운 상품권 구매'],
+  title = ['휴대폰 소액결제,신용카드 결제", "클릭 한번으로 손쉽운 상품권 구매'],
   subtitle = '구매 즉시 발급, 24시간 언제든 사용 가능,상품권 현금화까지 한번에',
-  buttonText = '바로 구매하기',
+  buttonText = '이용 흐름 확인하기',
   onButtonClick,
   imageSrc = '/hero-image.png',
-  imageAlt = '결제 일러스트레이션',
+  imageAlt = '바로 구매하기',
   className,
 }) => {
   return (
@@ -116,10 +83,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             priority
           />
         </div>
-      </div>
-    </section>
-  );
-};
       </div>
     </section>
   );
