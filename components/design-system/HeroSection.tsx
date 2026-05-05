@@ -41,7 +41,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
       <div className="relative z-10 flex w-full flex-col items-center text-center lg:max-w-[520px] lg:items-start lg:text-left">
         <span className="mb-5 inline-flex rounded-full border border-[#BFD7FF] bg-white/80 px-4 py-2 text-[13px] font-bold text-[#2563EB]">
-          PINTOSS GUIDE
+          핀토스몰
         </span>
 
         <div className="text-[30px] font-extrabold leading-[1.22] tracking-[-0.9px] text-[#111827] sm:text-[36px] md:text-[44px] lg:text-[48px]">
