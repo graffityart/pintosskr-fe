@@ -29,11 +29,11 @@ export default function Home() {
         <HeroSectionWrapper />
       </section>
 
-      {/* Section 2: 많이 찾는 상품 */}
+      {/* Section 2: 자주 찾는 상품 */}
       <section className="bg-white px-4 pt-10 pb-6 sm:px-8 md:px-16 lg:px-[120px] xl:px-[200px] md:pt-16 md:pb-8 lg:pt-20 lg:pb-10">
         <div className="flex items-center justify-between mb-4 md:mb-6">
           <h2 className="text-[18px] font-semibold text-[#212121] md:text-[24px]">
-            많이 찾는 상품
+            자주 찾는 상품
           </h2>
         </div>
         <Suspense
@@ -52,7 +52,7 @@ export default function Home() {
         </Suspense>
       </section>
 
-      {/* Section 3: 전체 상품 보기 */}
+      {/* Section 3: 전체 상품 */}
       <section
         id="products"
         className="bg-white px-4 py-6 sm:px-8 md:px-16 lg:px-[120px] xl:px-[200px] md:py-10 lg:py-12"
@@ -86,34 +86,34 @@ export default function Home() {
             <div className="relative w-[80px] h-[80px] mb-2 md:w-[140px] md:h-[140px]">
               <Image
                 src="/Rectangle 55.png"
-                alt="24시간 운영"
+                alt="24시 발송 시스템"
                 fill
                 className="object-contain"
                 loading="lazy"
               />
             </div>
             <p className="text-[14px] font-semibold text-[#424242] mb-1 md:text-[20px] md:mb-2">
-              24시간 운영
+              24시 발송 시스템
             </p>
             <p className="text-[11px] text-[#9E9E9E] leading-[1.4] md:text-[16px]">
-              핀토스 자동화 시스템을 사용하여 구매 즉시 상품권을 발송해요.
+              자동화 시스템으로 24시 실시간으로 PIN번호를 받아 보실 수 있습니다.
             </p>
           </div>
           <div className="bg-[#FAFAFA] rounded-[10px] p-4 flex flex-col items-center text-center md:p-6">
             <div className="relative w-[80px] h-[80px] mb-2 md:w-[140px] md:h-[140px]">
               <Image
                 src="/lock.png"
-                alt="철저한 보안 시스템"
+                alt="보안 시스템 작동중"
                 fill
                 className="object-contain"
                 loading="lazy"
               />
             </div>
             <p className="text-[14px] font-semibold text-[#424242] mb-1 md:text-[20px] md:mb-2">
-              철저한 보안 시스템
+              보안 시스템 작동중
             </p>
             <p className="text-[11px] text-[#9E9E9E] leading-[1.4] md:text-[16px]">
-              해킹 방지를 위해 설계된 2채널 보안시스템을 가동해요.
+              실시간 발권된 상품권과 완벽한 보안 시스템 작동으로 걱정없이 이용 하세요.
             </p>
           </div>
           <div className="bg-[#FAFAFA] rounded-[10px] p-4 flex flex-col items-center text-center md:p-6">
@@ -130,24 +130,24 @@ export default function Home() {
               안전한 상품권
             </p>
             <p className="text-[11px] text-[#9E9E9E] leading-[1.4] md:text-[16px]">
-              구매요청이 들어오는 즉시 새 상품권을 발행해서 판매해요.
+              주문이 접수되면 사용 이력이 없는 상품권을 기준으로 발급 절차가 진행됩니다.
             </p>
           </div>
           <div className="bg-[#FAFAFA] rounded-[10px] p-4 flex flex-col items-center text-center md:p-6">
             <div className="relative w-[80px] h-[80px] mb-2 md:w-[140px] md:h-[140px]">
               <Image
                 src="/card.png"
-                alt="다양한 결제수단 지원"
+                alt="다양한 결제수단"
                 fill
                 className="object-contain"
                 loading="lazy"
               />
             </div>
             <p className="text-[14px] font-semibold text-[#424242] mb-1 md:text-[20px] md:mb-2">
-              다양한 결제수단 지원
+              다양한 결제수단
             </p>
             <p className="text-[11px] text-[#9E9E9E] leading-[1.4] md:text-[16px]">
-              카드, 휴대폰 모두 통합하여 사이트 이동 없이 이용이 가능해요.
+              카드와 휴대폰 결제를 한 화면에서 확인할 수 있어, 별도 페이지 이동 없이 이용 흐름을 이어갈 수 있습니다.
             </p>
           </div>
         </div>
