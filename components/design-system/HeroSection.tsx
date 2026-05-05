@@ -15,9 +15,9 @@ export interface HeroSectionProps {
 }
 
 export const HeroSection: React.FC<HeroSectionProps> = ({
-  title = ['휴대폰 소액결제,신용카드 결제", "클릭 한번으로 손쉽운 상품권 구매'],
-  subtitle = '구매 즉시 발급, 24시간 언제든 사용 가능,상품권 현금화까지 한번에',
-  buttonText = '이용 흐름 확인하기',
+  title = ["휴대폰 소액결제, 신용카드 결제", "클릭 한 번으로 손쉬운 상품권 구매"],
+  subtitle = "구매 즉시 발급, 24시간 언제든 사용 가능, 상품권 이용 흐름까지 한 번에 확인",
+  buttonText = "이용 흐름 확인하기",
   onButtonClick,
   imageSrc = '/hero-image.png',
   imageAlt = '바로 구매하기',
