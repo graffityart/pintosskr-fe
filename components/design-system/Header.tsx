@@ -6,60 +6,18 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export interface HeaderNavItem {
-  /**
-   * 메뉴 텍스트
-   */
   label: string;
-
-  /**
-   * 링크 URL
-   */
   href?: string;
-
-  /**
-   * 활성화 상태
-   */
   active?: boolean;
-
-  /**
-   * 클릭 핸들러 (href 대신 사용 가능)
-   */
   onClick?: () => void;
 }
 
 export interface HeaderProps {
-  /**
-   * 로고 이미지 경로
-   * @default "/logo.png"
-   */
   logoSrc?: string;
-
-  /**
-   * 로고 클릭 시 이동할 경로
-   * @default "/"
-   */
   logoHref?: string;
-
-  /**
-   * 네비게이션 메뉴 아이템들
-   */
   navItems?: HeaderNavItem[];
-
-  /**
-   * 로고 너비
-   * @default 142
-   */
   logoWidth?: number;
-
-  /**
-   * 로고 높이
-   * @default 40
-   */
   logoHeight?: number;
-
-  /**
-   * 추가 CSS 클래스
-   */
   className?: string;
 }
 
@@ -67,15 +25,61 @@ export const Header: React.FC<HeaderProps> = ({
   logoSrc = '/logo.png',
   logoHref = '/',
   navItems = [
-    { label: 'text 1', href: '#', active: false },
-    { label: 'text 2', href: '#', active: false },
-    { label: 'text 3', href: '#', active: false },
+    { label: '고객센터', href: '/#notice', active: false },
+    { label: '회원가입', href: 'https://www.pin-toss.com/signup', active: false },
+    { label: '로그인', href: 'https://www.pin-toss.com/login', active: false },
   ],
   logoWidth = 142,
   logoHeight = 40,
   className,
 }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const renderNavItem = (
+    item: HeaderNavItem,
+    index: number,
+    className: string,
+    onClick?: () => void
+  ) => {
+    if (item.onClick) {
+      return (
+        <button
+          key={index}
+          onClick={() => {
+            item.onClick?.();
+            onClick?.();
+          }}
+          className={className}
+        >
+          {item.label}
+        </button>
+      );
+    }
+
+    if (item.href?.startsWith('http')) {
+      return (
+        <a
+          key={index}
+          href={item.href}
+          onClick={onClick}
+          className={className}
+        >
+          {item.label}
+        </a>
+      );
+    }
+
+    return (
+      <Link
+        key={index}
+        href={item.href || '#'}
+        onClick={onClick}
+        className={className}
+      >
+        {item.label}
+      </Link>
+    );
+  };
 
   return (
     <>
@@ -91,7 +95,6 @@ export const Header: React.FC<HeaderProps> = ({
           className
         )}
       >
-        {/* 로고 */}
         <Link href={logoHref} className="shrink-0 relative">
           <Image
             src={logoSrc}
@@ -103,42 +106,22 @@ export const Header: React.FC<HeaderProps> = ({
           />
         </Link>
 
-        {/* 데스크톱 네비게이션 메뉴 */}
         <nav className="hidden md:flex items-center gap-8 lg:gap-16 shrink-0">
           {navItems.map((item, index) =>
-            item.onClick ? (
-              <button
-                key={index}
-                onClick={item.onClick}
-                className={cn(
-                  'text-[14px] lg:text-[16px] font-medium leading-[1.3] tracking-[-0.4px]',
-                  'text-center',
-                  'transition-colors duration-200',
-                  item.active ? 'text-[#0565FF]' : 'text-[#616161]',
-                  'hover:text-[#0565FF]'
-                )}
-              >
-                {item.label}
-              </button>
-            ) : (
-              <Link
-                key={index}
-                href={item.href || '#'}
-                className={cn(
-                  'text-[14px] lg:text-[16px] font-medium leading-[1.3] tracking-[-0.4px]',
-                  'text-center',
-                  'transition-colors duration-200',
-                  item.active ? 'text-[#0565FF]' : 'text-[#616161]',
-                  'hover:text-[#0565FF]'
-                )}
-              >
-                {item.label}
-              </Link>
+            renderNavItem(
+              item,
+              index,
+              cn(
+                'text-[14px] lg:text-[16px] font-medium leading-[1.3] tracking-[-0.4px]',
+                'text-center',
+                'transition-colors duration-200',
+                item.active ? 'text-[#0565FF]' : 'text-[#616161]',
+                'hover:text-[#0565FF]'
+              )
             )
           )}
         </nav>
 
-        {/* 모바일 햄버거 버튼 */}
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           className="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5"
@@ -165,7 +148,6 @@ export const Header: React.FC<HeaderProps> = ({
         </button>
       </header>
 
-      {/* 모바일 메뉴 오버레이 */}
       {isMenuOpen && (
         <div
           className="md:hidden fixed inset-0 top-[52px] bg-black/50 z-40"
@@ -173,7 +155,6 @@ export const Header: React.FC<HeaderProps> = ({
         />
       )}
 
-      {/* 모바일 메뉴 드로어 */}
       <div
         className={cn(
           'md:hidden fixed top-[52px] left-0 right-0 bg-white z-50 border-b border-[#EEEEEE] shadow-lg',
@@ -185,40 +166,18 @@ export const Header: React.FC<HeaderProps> = ({
       >
         <nav className="flex flex-col py-2">
           {navItems.map((item, index) =>
-            item.onClick ? (
-              <button
-                key={index}
-                onClick={() => {
-                  item.onClick?.();
-                  setIsMenuOpen(false);
-                }}
-                className={cn(
-                  'px-6 py-4 text-[16px] font-medium text-left',
-                  'transition-colors duration-200',
-                  'active:bg-[#F5F5F5]',
-                  item.active
-                    ? 'text-[#0565FF] bg-[#F5F7FA]'
-                    : 'text-[#424242] hover:bg-[#FAFAFA]'
-                )}
-              >
-                {item.label}
-              </button>
-            ) : (
-              <Link
-                key={index}
-                href={item.href || '#'}
-                onClick={() => setIsMenuOpen(false)}
-                className={cn(
-                  'px-6 py-4 text-[16px] font-medium',
-                  'transition-colors duration-200',
-                  'active:bg-[#F5F5F5]',
-                  item.active
-                    ? 'text-[#0565FF] bg-[#F5F7FA]'
-                    : 'text-[#424242] hover:bg-[#FAFAFA]'
-                )}
-              >
-                {item.label}
-              </Link>
+            renderNavItem(
+              item,
+              index,
+              cn(
+                'px-6 py-4 text-[16px] font-medium text-left',
+                'transition-colors duration-200',
+                'active:bg-[#F5F5F5]',
+                item.active
+                  ? 'text-[#0565FF] bg-[#F5F7FA]'
+                  : 'text-[#424242] hover:bg-[#FAFAFA]'
+              ),
+              () => setIsMenuOpen(false)
             )
           )}
         </nav>
