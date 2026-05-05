@@ -72,8 +72,8 @@ function LoginPageContent() {
         logoSrc="/logo.png"
         navItems={[
           { label: "고객센터", href: "/#notice", active: false },
-          { label: "회원가입", href: "/signup", active: false },
-          { label: "로그인", href: "/login", active: false },
+          { label: "회원가입", href: "https://www.pin-toss.com/signup", active: false },
+          { label: "로그인", href: "https://www.pin-toss.com/login", active: false },
         ]}
       />
 
