@@ -1,12 +1,11 @@
 'use client';
 
 import { useEffect, Suspense } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
 import { useAuthStore } from '@/store/auth';
 import { toast } from 'sonner';
 
 function SocialLoginRedirectContent() {
-  const router = useRouter();
   const searchParams = useSearchParams();
   const { setAuth } = useAuthStore();
 
@@ -15,33 +14,38 @@ function SocialLoginRedirectContent() {
     const accessToken = searchParams.get('accessToken');
     const oauthSignupUuid = searchParams.get('oauthSignupUuid');
 
+    // ❌ 로그인 실패 → pin-toss 로그인으로 이동
     if (!isSuccess) {
       toast.error('로그인에 실패했습니다. 다시 시도해주세요.');
-      router.replace('/login');
+      window.location.href = 'https://www.pin-toss.com/login';
       return;
     }
 
-    // 케이스 1: 기존 회원 (토큰 있음)
+    // ✅ 기존 회원 → 토큰 저장 후 pin-toss 메인으로 이동
     if (accessToken) {
       setAuth(accessToken);
       toast.success('로그인 성공!');
 
       const returnUrl = sessionStorage.getItem('returnUrl') || '/';
       sessionStorage.removeItem('returnUrl');
-      router.replace(returnUrl);
+
+      window.location.href = `https://www.pin-toss.com${returnUrl}`;
       return;
     }
 
-    // 케이스 2: 신규 회원 (OAuth 회원가입 필요)
+    // 🆕 신규 회원 → pin-toss 회원가입으로 이동
     if (oauthSignupUuid) {
       toast.info('회원가입이 필요합니다.');
-      router.replace(`/signup/oauth?oauthSignupUuid=${oauthSignupUuid}`);
+
+      window.location.href = `https://www.pin-toss.com/signup/oauth?oauthSignupUuid=${oauthSignupUuid}`;
       return;
     }
 
+    // ❌ 예외 상황
     toast.error('로그인 정보를 받을 수 없습니다.');
-    router.replace('/login');
-  }, [searchParams, router, setAuth]);
+    window.location.href = 'https://www.pin-toss.com/login';
+
+  }, [searchParams, setAuth]);
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-white">
