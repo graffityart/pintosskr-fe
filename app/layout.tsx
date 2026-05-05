@@ -9,14 +9,16 @@ import { pretendard } from "../lib/fonts";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://pin-toss.com"),
+  metadataBase: new URL("https://pintoss.kr"),
   title: {
-    default: "핀토스몰 - 상품권 휴대폰 소액결제, 신용 카드결제 | 24시간 발송",
+    default: "소액결제 현금화 | 상품권 구매후 판매하는 방법",
     template: "%s | 핀토스몰",
   },
   description:
-    "상품권소액결제, 상품권카드결제를 이용해 컬쳐랜드 문화상품권 구글기프트카드 등 다양한 상품권을 24시간 빠르게 구매할 수 있습니다. 안전한 인증 시스템과 즉시 발송 기능으로 편리한 이용이 가능합니다. 믿고 이용할 수 있는 상품권 전문 판매몰 핀토스몰입니다.",
+    "소액결제 현금화 과정에서 상품권 구매와 판매가 어떤 구조로 이어지는지 전체 흐름을 중심으로 정리했습니다. 단계별 진행 방식과 함께 이용 전 확인해야 할 주요 기준까지 이해할 수 있습니다.",
   keywords: [
+    "소액결제 현금화"
+    "소액결제현금화"
     "휴대폰 소액결제",
     "핸드폰 소액결제",
     "상품권소액결제",
@@ -56,7 +58,7 @@ export const metadata: Metadata = {
     telephone: false,
   },
   alternates: {
-    canonical: "https://pin-toss.com",
+    canonical: "https://pintoss.kr",
   },
   verification: {
     google: "J_OlDQR29PFRj2JfrnjLMOKpKPPyVtOw4e3tSFuxugw",
@@ -65,14 +67,14 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "핀토스몰 - 상품권 휴대폰 소액결제, 신용 카드결제 | 24시간 발송",
+    title: "소액결제 현금화 | 상품권 구매후 판매하는 방법",
     description:
-      "컬쳐랜드, 문화상품권, 구글기프트카드 등 다양한 상품권을 소액결제와 카드결제로 24시간 빠르게 구매하세요. 안전한 인증 시스템과 즉시 발송 서비스로 편리하게 이용할 수 있는 상품권 전문몰 핀토스몰.",
-    url: "https://pin-toss.com",
+      "소액결제 현금화 과정에서 상품권 구매와 판매가 어떤 구조로 이어지는지 전체 흐름을 중심으로 정리했습니다. 단계별 진행 방식과 함께 이용 전 확인해야 할 주요 기준까지 이해할 수 있습니다.",
+    url: "https://pintoss.kr",
     siteName: "핀토스몰 PinToss Mall",
     images: [
       {
-        url: "https://pin-toss.com/og-image.png",
+        url: "https://pintoss.kr/og-image.png",
         width: 1200,
         height: 630,
         alt: "핀토스몰 - 상품권 전문 판매몰",
@@ -83,10 +85,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "핀토스몰 - 상품권 휴대폰 소액결제, 신용 카드결제 | 24시간 발송",
+    title: "소액결제 현금화 | 상품권 구매후 판매하는 방법",
     description:
-      "상품권소액결제, 상품권카드결제로 컬쳐랜드·문화상품권·구글기프트카드를 24시간 빠르게 구매하세요. 안전한 인증과 즉시 발송으로 편리한 구매 경험을 제공하는 핀토스몰.",
-    images: ["https://pin-toss.com/og-image.png"],
+      "소액결제 현금화 과정에서 상품권 구매와 판매가 어떤 구조로 이어지는지 전체 흐름을 중심으로 정리했습니다. 단계별 진행 방식과 함께 이용 전 확인해야 할 주요 기준까지 이해할 수 있습니다.",
+    images: ["https://pintoss.kr/og-image.png"],
   },
   robots: {
     index: true,
