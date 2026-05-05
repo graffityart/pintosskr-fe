@@ -5,59 +5,15 @@ import { cn } from '@/lib/cn';
 import Image from 'next/image';
 
 export interface ProductCardProps {
-  /**
-   * 브랜드 로고 이미지 경로
-   */
   brandLogo?: string;
-
-  /**
-   * 브랜드 로고 alt 텍스트
-   */
   brandLogoAlt?: string;
-
-  /**
-   * 상품명
-   * @default "상품명"
-   */
   productName?: string;
-
-  /**
-   * 가격
-   * @default "00,000원"
-   */
   price?: string;
-
-  /**
-   * 구매하기 버튼 텍스트
-   * @default "구매하기"
-   */
   buttonText?: string;
-
-  /**
-   * 호버 상태 (선택된 상태)
-   * @default false
-   */
   selected?: boolean;
-
-  /**
-   * 구매하기 버튼 표시 여부
-   * @default true
-   */
   showButton?: boolean;
-
-  /**
-   * 클릭 핸들러
-   */
   onClick?: () => void;
-
-  /**
-   * 구매하기 버튼 클릭 핸들러
-   */
   onPurchaseClick?: () => void;
-
-  /**
-   * 추가 CSS 클래스
-   */
   className?: string;
 }
 
@@ -66,7 +22,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
   brandLogoAlt = '브랜드 로고',
   productName = '상품명',
   price = '00,000원',
-  buttonText = '구매하기',
+  buttonText = '자세히 보기',
   selected = false,
   showButton = true,
   onClick,
@@ -77,91 +33,62 @@ export const ProductCard: React.FC<ProductCardProps> = ({
     <div
       onClick={onClick}
       className={cn(
-        'bg-white rounded-[10px]',
-        'flex flex-col items-center justify-center gap-4',
-        'px-8 py-6',
-        'box-border',
+        'group bg-white rounded-[22px]',
+        'flex flex-col items-center justify-between gap-5',
+        'px-5 py-6 md:px-6 md:py-7',
+        'box-border cursor-pointer',
+        'border border-[#DDE7F3]',
+        'shadow-[0_8px_24px_rgba(15,23,42,0.04)]',
         'transition-all duration-200',
-        'cursor-pointer',
-        selected
-          ? 'border-2 border-[#0565FF]'
-          : 'border-[1.5px] border-[#E0E0E0] hover:border-[#0565FF]',
+        'hover:-translate-y-1 hover:border-[#94A3B8] hover:shadow-[0_14px_34px_rgba(15,23,42,0.08)]',
+        selected &&
+          'border-[#0F172A] bg-[#F8FAFC] shadow-[0_14px_34px_rgba(15,23,42,0.10)]',
         className
       )}
     >
-      {/* 브랜드 로고 */}
       {brandLogo ? (
-        <div className="relative w-[104px] h-[104px] shrink-0 rounded-[10px] overflow-hidden bg-white">
+        <div className="relative h-[92px] w-[92px] shrink-0 overflow-hidden rounded-[18px] border border-[#EEF2F7] bg-[#F8FAFC] md:h-[108px] md:w-[108px]">
           <Image
             src={brandLogo}
             alt={brandLogoAlt}
             fill
-            className="object-contain p-[10px]"
+            className="object-contain p-[14px]"
           />
         </div>
       ) : (
-        <div className="w-[104px] h-[104px] shrink-0 rounded-[10px] bg-gray-100 flex items-center justify-center">
-          <span className="text-gray-400 text-sm">로고</span>
+        <div className="flex h-[92px] w-[92px] shrink-0 items-center justify-center rounded-[18px] border border-[#EEF2F7] bg-[#F8FAFC] md:h-[108px] md:w-[108px]">
+          <span className="text-[13px] font-medium text-[#94A3B8]">로고</span>
         </div>
       )}
 
-      {/* 상품 정보 */}
-      <div className="flex flex-col gap-2 items-start w-[172px] shrink-0 text-center whitespace-nowrap">
-        {/* 상품명 */}
-        <p className="w-full text-[18px] font-medium leading-[1.3] tracking-[-0.45px] text-[#757575] overflow-ellipsis overflow-hidden">
+      <div className="flex w-full flex-col items-center gap-2 text-center">
+        <p className="w-full overflow-hidden text-ellipsis whitespace-nowrap text-[15px] font-semibold leading-[1.4] tracking-[-0.35px] text-[#334155] md:text-[17px]">
           {productName}
         </p>
 
-        {/* 가격 */}
-        <p className="w-full text-[20px] font-semibold leading-[1.3] tracking-[-0.5px] text-[#212121] overflow-ellipsis overflow-hidden">
+        <p className="w-full overflow-hidden text-ellipsis whitespace-nowrap text-[18px] font-extrabold leading-[1.3] tracking-[-0.45px] text-[#0F172A] md:text-[20px]">
           {price}
         </p>
       </div>
 
-      {/* 구매하기 버튼 */}
       {showButton && (
-        <div className="w-full">
-          {selected ? (
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                onPurchaseClick?.();
-              }}
-              className={cn(
-                'w-full',
-                'bg-[#DAE8FF] rounded-[10px]',
-                'px-8 py-3',
-                'flex items-center justify-center gap-1',
-                'transition-all duration-200',
-                'hover:bg-[#C8DEFF]'
-              )}
-            >
-              <span className="text-[18px] font-semibold leading-[1.3] tracking-[-0.45px] text-[#0565FF]">
-                {buttonText}
-              </span>
-            </button>
-          ) : (
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                onPurchaseClick?.();
-              }}
-              className={cn(
-                'w-full',
-                'border-[1.5px] border-[#0565FF] border-solid',
-                'bg-transparent rounded-[10px]',
-                'px-8 py-3',
-                'flex items-center justify-center gap-1',
-                'transition-all duration-200',
-                'hover:bg-[#DAE8FF]'
-              )}
-            >
-              <span className="text-[18px] font-semibold leading-[1.3] tracking-[-0.45px] text-[#0565FF]">
-                {buttonText}
-              </span>
-            </button>
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            onPurchaseClick?.();
+          }}
+          className={cn(
+            'w-full rounded-[14px]',
+            'px-5 py-3',
+            'text-[14px] font-bold tracking-[-0.3px] md:text-[15px]',
+            'transition-all duration-200',
+            selected
+              ? 'bg-[#0F172A] text-white hover:bg-[#1D4ED8]'
+              : 'border border-[#CBD5E1] bg-[#F8FAFC] text-[#334155] hover:border-[#0F172A] hover:bg-[#0F172A] hover:text-white'
           )}
-        </div>
+        >
+          {buttonText}
+        </button>
       )}
     </div>
   );
