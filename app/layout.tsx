@@ -61,7 +61,7 @@ export const metadata: Metadata = {
     canonical: "https://pintoss.kr",
   },
   verification: {
-    google: "J_OlDQR29PFRj2JfrnjLMOKpKPPyVtOw4e3tSFuxugw",
+    google: "Ufn_qRw-2khputRFhjfnA1opJ5zGk3NuUvhJYn6KO2E",
     other: {
       "naver-site-verification": "939e1d010661dc030c56e6c5ce520f51527e5efd",
     },
