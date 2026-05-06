@@ -2,105 +2,114 @@ import Link from "next/link";
 
 export function MainFooter() {
   return (
-    <footer className="px-4 py-6 bg-neutral-50 sm:px-8 md:px-16 lg:px-[120px] xl:px-[200px] md:py-10 lg:py-12">
-      <div className="flex flex-col gap-6 md:flex-row md:justify-between md:items-end md:gap-8">
-        {/* 좌측 */}
-        <div className="flex flex-col gap-4 md:gap-6">
-          <div className="w-[100px] h-8 md:w-[142px] md:h-10">
-            <img
-              src="/logo.png"
-              alt="핀토스"
-              className="w-full h-full object-contain"
-            />
-          </div>
-          <div className="flex flex-col gap-2 text-[11px] text-[#424242] leading-[1.5] md:gap-4 md:text-[16px]">
-            <p>
-              상호: 핀토스 l 주소: (47190) 부산광역시 부산진구 당감로17, 7동
-              906호(당감동) l 대표 조문국
-            </p>
-            <p>
-              사업자등록번호: 590-95-01527 l 통신판매번호 2024-부산진-1016 l
-              Email : admin@pin-toss.com
-            </p>
-            <p className="hidden md:block">
-              고객센터 주소 : 부산광역시 부산진구 당감로17, 7동 906호(당감동)
-              l 핀토스 고객센터 Tel:010-9300-4202
-            </p>
-            <p className="hidden md:block">
-              민원담당자: 조문국 l 연락처: 010-9300-4202
-            </p>
-            <p className="text-[#BDBDBD] text-[10px] md:text-[16px]">
-              해당 사이트에서 판매되는 모든 상품에 환불 및 모든 민원의 책임은
-              핀토스 에 있습니다.
-            </p>
-          </div>
+    <footer className="mt-16 border-t border-[#E5E7EB] bg-[#F8FAFC] px-4 py-8 sm:px-8 md:px-16 lg:px-[120px] xl:px-[200px] md:py-12">
+      <div className="mx-auto flex max-w-[1280px] flex-col gap-8">
 
-          {/* 버튼들 */}
-          <div className="flex flex-col gap-3 md:flex-row md:gap-4">
-            <button className="bg-[#0565FF] text-white px-4 py-2.5 rounded-[10px] text-[12px] font-semibold md:px-8 md:py-3 md:text-[18px]">
-              대량구매/제휴문의 : admin@pin-toss.com
-            </button>
-            <div className="bg-[#FFFADA] flex items-center gap-2 px-4 py-2.5 rounded-[10px] md:gap-3 md:px-6 md:py-3">
+        <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
+          <div className="flex flex-col gap-4">
+            <div className="w-[104px] h-8 md:w-[142px] md:h-10">
               <img
-                src="/kakao-logo.png"
-                alt="카카오톡"
-                className="w-5 h-5 md:w-[22px] md:h-[22px]"
+                src="/logo.png"
+                alt="핀토스"
+                className="h-full w-full object-contain"
               />
-              <p className="text-[12px] font-medium text-[#3E2723] md:text-[18px]">
-                카카오톡 m4202
+            </div>
+
+            <div>
+              <p className="text-[15px] font-bold text-[#111827] md:text-[20px]">
+                핀토스 운영안내
+              </p>
+              <p className="mt-2 max-w-[620px] text-[12px] leading-[1.7] text-[#6B7280] md:text-[15px]">
+                디지털 상품 이용 과정과 결제 흐름 관련 정보를 기반으로 운영되는 안내 페이지입니다.
+                이용 전 확인해야 하는 기준과 고객지원 정보를 함께 제공합니다.
               </p>
             </div>
           </div>
 
-          {/* Copyright */}
-          <p className="text-[11px] text-[#BDBDBD] md:text-[16px]">
-            Copyright © 핀토스 All rights reserved.
-          </p>
+          <div className="rounded-[18px] border border-[#DBEAFE] bg-white px-5 py-4 shadow-sm md:min-w-[260px] md:text-right">
+            <p className="text-[13px] font-semibold text-[#111827] md:text-[16px]">
+              고객지원
+            </p>
+            <p className="mt-2 text-[22px] font-bold leading-none text-[#0565FF] md:text-[30px]">
+              010-9300-4202
+            </p>
+            <p className="mt-2 text-[12px] text-[#6B7280] md:text-[14px]">
+              운영시간 10:00 - 18:00
+            </p>
+          </div>
         </div>
 
-        {/* 우측 */}
-        <div className="flex flex-col gap-4 md:gap-8 md:items-end">
-          {/* 고객센터 */}
-          <div className="flex flex-col gap-2 md:gap-3 md:items-end">
-            <p className="text-[14px] font-semibold text-[#212121] md:text-[20px]">
-              고객센터
+        <div className="grid gap-4 md:grid-cols-3">
+          <div className="rounded-[16px] border border-[#E5E7EB] bg-white p-5">
+            <p className="mb-3 text-[13px] font-bold text-[#111827] md:text-[16px]">
+              운영 정보
             </p>
-            <div className="flex flex-col md:items-end">
-              <p className="text-[20px] font-bold text-[#0565FF] leading-[1.3] md:text-[32px]">
-                010-9300-4202
-              </p>
-              <p className="text-[14px] font-medium text-[#757575] leading-[1.3] md:text-[20px]">
-                10:00 - 18:00
-              </p>
-            </div>
-            <div className="flex gap-4 text-[11px] text-[#757575] md:gap-6 md:text-[16px]">
-              <Link href="/privacy" className="hover:underline">
-                개인정보 처리방침
-              </Link>
-              <Link href="/terms" className="hover:underline">
-                이용약관
-              </Link>
-            </div>
+            <ul className="space-y-2 text-[12px] leading-[1.6] text-[#4B5563] md:text-[14px]">
+              <li>상호명 : 핀토스</li>
+              <li>대표자 : 조문국</li>
+              <li>사업자등록번호 : 590-95-01527</li>
+              <li>통신판매업 신고번호 : 2024-부산진-1016</li>
+            </ul>
           </div>
 
-          {/* 상품권 판매하기 링크 */}
-          <a
-            href="https://www.ksdl.kr/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[12px] font-semibold text-[#0565FF] underline md:text-[16px]"
-          >
-            상품권 판매하기
-          </a>
-
-          {/* 결제보안 배너 */}
-          <div className="mt-2 md:mt-0">
-            <img
-              src="/protect-banner.png"
-              alt="결제보안 인증"
-              className="h-[30px] w-auto md:h-[43px]"
-            />
+          <div className="rounded-[16px] border border-[#E5E7EB] bg-white p-5">
+            <p className="mb-3 text-[13px] font-bold text-[#111827] md:text-[16px]">
+              문의 정보
+            </p>
+            <ul className="space-y-2 text-[12px] leading-[1.6] text-[#4B5563] md:text-[14px]">
+              <li>이메일 : admin@pintoss.kr</li>
+              <li>민원 담당 : 조문국</li>
+              <li>연락처 : 010-9300-4202</li>
+              <li>대량구매/제휴문의 : admin@pintoss.kr</li>
+            </ul>
           </div>
+
+          <div className="rounded-[16px] border border-[#E5E7EB] bg-white p-5">
+            <p className="mb-3 text-[13px] font-bold text-[#111827] md:text-[16px]">
+              사업장 위치
+            </p>
+            <p className="text-[12px] leading-[1.7] text-[#4B5563] md:text-[14px]">
+              부산광역시 부산진구 당감로17,
+              <br />
+              7동 906호(당감동)
+            </p>
+          </div>
+        </div>
+
+        <div className="flex flex-col gap-4 border-t border-[#E5E7EB] pt-5 md:flex-row md:items-center md:justify-between">
+          <p className="max-w-[760px] text-[11px] leading-[1.7] text-[#6B7280] md:text-[13px]">
+            사이트 내 등록된 상품 및 서비스 관련 문의는 운영 정책 기준에 따라 확인 및 처리됩니다.
+            결제 환경과 이용 조건에 따라 일부 서비스 제공 범위가 달라질 수 있습니다.
+          </p>
+
+          <div className="flex flex-wrap items-center gap-4 text-[12px] text-[#4B5563] md:text-[14px]">
+            <Link href="/privacy" className="hover:text-[#0565FF] hover:underline">
+              개인정보 처리방침
+            </Link>
+            <Link href="/terms" className="hover:text-[#0565FF] hover:underline">
+              이용약관
+            </Link>
+            <a
+              href="https://www.ksdl.kr/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-[#0565FF] underline"
+            >
+              상품권 판매하기
+            </a>
+          </div>
+        </div>
+
+        <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+          <p className="text-[11px] text-[#9CA3AF] md:text-[13px]">
+            Copyright © 핀토스. All rights reserved.
+          </p>
+
+          <img
+            src="/protect-banner.png"
+            alt="결제보안 인증"
+            className="h-[30px] w-fit md:h-[40px]"
+          />
         </div>
       </div>
     </footer>
